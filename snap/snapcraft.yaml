@@ -9,7 +9,8 @@ description:
 grade: stable
 confinement: classic
 architectures:
-  - amd64
+  - build-on: amd64
+    run-on: amd64
 
 apps:
   eclipse:
