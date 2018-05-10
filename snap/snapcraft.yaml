@@ -1,16 +1,16 @@
 name: eclipse
-version: '4.7.3a'
+version: '3a'
+version-script: echo "4.7.$SNAPCRAFT_PROJECT_VERSION"
 summary: Extensible Tool Platform and Java IDE
 description:
   Eclipse provides IDEs and platforms for nearly every language and architecture.
   We are famous for our Java IDE, C/C++, JavaScript and PHP IDEs built on extensible
   platforms for creating desktop, Web and cloud IDEs. These platforms deliver the most
   extensive collection of add-on tools available for software developers.
+
 grade: stable
 confinement: classic
-architectures:
-  - amd64
-  
+
 apps:
   eclipse:
     command: eclipse
@@ -23,8 +23,13 @@ parts:
     source: .
     prime:
       - eclipse.desktop
+
   eclipse:
     plugin: dump
-    source: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/oxygen/3a/eclipse-java-oxygen-3a-linux-gtk-x86_64.tar.gz
+    source:
+      - on amd64: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/oxygen/$SNAPCRAFT_PROJECT_VERSION/eclipse-java-oxygen-$SNAPCRAFT_PROJECT_VERSION-linux-gtk-x86_64.tar.gz
+      - else:
+        - on i386: http://ftp.halifax.rwth-aachen.de/eclipse//technology/epp/downloads/release/oxygen/$SNAPCRAFT_PROJECT_VERSION/eclipse-java-oxygen-$SNAPCRAFT_PROJECT_VERSION-linux-gtk.tar.gz
+        - else fail
     build-attributes:
       - no-patchelf
