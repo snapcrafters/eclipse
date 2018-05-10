@@ -25,6 +25,6 @@ parts:
       - eclipse.desktop
   eclipse:
     plugin: dump
-    source: http://ftp.halifax.rwth-aachen.de/eclipse//technology/epp/downloads/release/oxygen/3a/eclipse-java-oxygen-3a-linux-gtk-x86_64.tar.gz
+    source: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/oxygen/3a/eclipse-java-oxygen-3a-linux-gtk-x86_64.tar.gz
     build-attributes:
       - no-patchelf
