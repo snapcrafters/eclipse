@@ -28,8 +28,8 @@ parts:
     plugin: dump
     source:
       - on amd64: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/oxygen/$SNAPCRAFT_PROJECT_VERSION/eclipse-java-oxygen-$SNAPCRAFT_PROJECT_VERSION-linux-gtk-x86_64.tar.gz
-      - else:
-        - on i386: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/oxygen/$SNAPCRAFT_PROJECT_VERSION/eclipse-java-oxygen-$SNAPCRAFT_PROJECT_VERSION-linux-gtk.tar.gz
-        - else fail
+      - on i386: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/oxygen/$SNAPCRAFT_PROJECT_VERSION/eclipse-java-oxygen-$SNAPCRAFT_PROJECT_VERSION-linux-gtk.tar.gz
+      - on armhf: fail
+      - on arm64: fail
     build-attributes:
       - no-patchelf
