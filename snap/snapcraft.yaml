@@ -1,6 +1,6 @@
 name: eclipse
 version: 'R'
-version-script: echo "4.8.0.$SNAPCRAFT_PROJECT_VERSION"
+version-script: echo "4.8.0"
 summary: Extensible Tool Platform and Java IDE
 description:
   Eclipse provides IDEs and platforms for nearly every language and architecture.
