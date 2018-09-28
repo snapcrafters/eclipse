@@ -1,4 +1,4 @@
-name: eclipse
+name: eclipse-cdt
 version: '2018-09'
 summary: Extensible Tool Platform and Java IDE
 description:
@@ -12,8 +12,8 @@ confinement: classic
 
 apps:
   eclipse:
-    command: eclipse
-    desktop: eclipse.desktop
+    command: eclipse-cdt
+    desktop: eclipse-cdt.desktop
 
 parts:
   desktop:
@@ -21,13 +21,13 @@ parts:
     plugin: dump
     source: .
     prime:
-      - eclipse.desktop
+      - eclipse-cdt.desktop
 
   eclipse:
     plugin: dump
     source:
-      - on amd64: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-java-$SNAPCRAFT_PROJECT_VERSION-linux-gtk-x86_64.tar.gz
-      - on i386: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-java-$SNAPCRAFT_PROJECT_VERSION-linux-gtk.tar.gz
+      - on amd64: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-cdt-$SNAPCRAFT_PROJECT_VERSION-linux-gtk-x86_64.tar.gz
+      - on i386: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-cdt-$SNAPCRAFT_PROJECT_VERSION-linux-gtk.tar.gz
       - on armhf: fail
       - on arm64: fail
     build-attributes:

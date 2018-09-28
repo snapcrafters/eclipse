@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Eclipse Java
+Icon=/icon.xpm
+Exec="/eclipse" %f
+Comment=Eclipse Java IDE
+Categories=Development;IDE;Java
+Terminal=false
+StartupWMClass=eclipse
