@@ -1,0 +1,34 @@
+name: eclipse-java
+version: '2018-09'
+summary: Extensible Tool Platform and Java IDE
+description:
+  Eclipse provides IDEs and platforms for nearly every language and architecture.
+  We are famous for our Java IDE, C/C++, JavaScript and PHP IDEs built on extensible
+  platforms for creating desktop, Web and cloud IDEs. These platforms deliver the most
+  extensive collection of add-on tools available for software developers.
+
+grade: stable
+confinement: classic
+
+apps:
+  eclipse:
+    command: eclipse-java
+    desktop: eclipse-java.desktop
+
+parts:
+  desktop:
+    after: [eclipse]
+    plugin: dump
+    source: .
+    prime:
+      - eclipse-java.desktop
+
+  eclipse:
+    plugin: dump
+    source:
+      - on amd64: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-java-$SNAPCRAFT_PROJECT_VERSION-linux-gtk-x86_64.tar.gz
+      - on i386: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-java-$SNAPCRAFT_PROJECT_VERSION-linux-gtk.tar.gz
+      - on armhf: fail
+      - on arm64: fail
+    build-attributes:
+      - no-patchelf

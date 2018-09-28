@@ -1,10 +1,10 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=Eclipse
+Name=Eclipse CDT
 Icon=/icon.xpm
 Exec="/eclipse" %f
-Comment=Eclipse IDE
-Categories=Development;IDE;
+Comment=Eclipse CDT IDE
+Categories=Development;IDE;C++
 Terminal=false
 StartupWMClass=eclipse
