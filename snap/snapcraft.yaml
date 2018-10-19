@@ -10,6 +10,10 @@ description:
 grade: stable
 confinement: classic
 
+architectures:
+  - build-on: i386
+  - build-on: amd64
+
 apps:
   eclipse:
     command: eclipse
@@ -28,7 +32,5 @@ parts:
     source:
       - on amd64: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-java-$SNAPCRAFT_PROJECT_VERSION-linux-gtk-x86_64.tar.gz
       - on i386: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-java-$SNAPCRAFT_PROJECT_VERSION-linux-gtk.tar.gz
-      - on armhf: fail
-      - on arm64: fail
     build-attributes:
       - no-patchelf
