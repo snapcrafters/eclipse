@@ -1,5 +1,5 @@
 name: eclipse
-version: '2018-09'
+version: '2018-12'
 summary: Extensible Tool Platform and Java IDE
 description:
   Eclipse provides IDEs and platforms for nearly every language and architecture.
@@ -11,7 +11,6 @@ grade: stable
 confinement: classic
 
 architectures:
-  - build-on: i386
   - build-on: amd64
 
 apps:
@@ -30,7 +29,6 @@ parts:
   eclipse:
     plugin: dump
     source:
-      - on amd64: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-java-$SNAPCRAFT_PROJECT_VERSION-linux-gtk-x86_64.tar.gz
-      - on i386: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-java-$SNAPCRAFT_PROJECT_VERSION-linux-gtk.tar.gz
+      - on amd64: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-java-$SNAPCRAFT_PROJECT_VERSION-R-linux-gtk-x86_64.tar.gz
     build-attributes:
       - no-patchelf
