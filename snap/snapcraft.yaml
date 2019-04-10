@@ -27,13 +27,6 @@ parts:
       add-apt-repository -y ppa:ubuntu-desktop/gnome-3-26
       apt -y update
       apt -y upgrade
-  desktop:
-    after: [eclipse]
-    plugin: dump
-    source: .
-    prime:
-      - eclipse.desktop
-
   eclipse:
     after: [gnome]
     plugin: dump
@@ -41,3 +34,9 @@ parts:
       - on amd64: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-java-$SNAPCRAFT_PROJECT_VERSION-R-linux-gtk-x86_64.tar.gz
     build-attributes:
       - no-patchelf
+  desktop:
+    after: [eclipse]
+    plugin: dump
+    source: .
+    prime:
+      - eclipse.desktop
