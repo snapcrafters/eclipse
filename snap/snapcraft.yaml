@@ -16,7 +16,6 @@ architectures:
 apps:
   eclipse:
     command: eclipse
-    desktop: eclipse.desktop
 
 parts:
   eclipse:
@@ -25,9 +24,3 @@ parts:
       - on amd64: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-java-$SNAPCRAFT_PROJECT_VERSION-R-linux-gtk-x86_64.tar.gz
     build-attributes:
       - no-patchelf
-  desktop:
-    after: [eclipse]
-    plugin: dump
-    source: .
-    prime:
-      - eclipse.desktop
