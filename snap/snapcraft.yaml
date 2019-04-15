@@ -1,4 +1,6 @@
 name: eclipse
+base: core18
+
 version: '2019-03'
 summary: Extensible Tool Platform and Java IDE
 description:
