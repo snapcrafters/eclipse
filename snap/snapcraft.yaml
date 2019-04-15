@@ -24,5 +24,20 @@ parts:
     plugin: dump
     source:
       - on amd64: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-java-$SNAPCRAFT_PROJECT_VERSION-R-linux-gtk-x86_64.tar.gz
-    build-attributes:
-      - no-patchelf
+    override-build: |
+      snapcraftctl build
+      # Add these missing libraries to DT_NEEDED
+      patchelf \
+        --add-needed libffi.so.6 \
+        --add-needed libgdk_pixbuf-2.0.so.0 \
+        --add-needed libgio-2.0.so.0 \
+        --add-needed libglib-2.0.so.0 \
+        --add-needed libgmodule-2.0.so.0 \
+        --add-needed libgobject-2.0.so.0 \
+        eclipse
+    build-packages:
+      - patchelf
+    stage-packages:
+      - libffi6
+      - libgdk-pixbuf2.0-0
+      - libglib2.0-0
