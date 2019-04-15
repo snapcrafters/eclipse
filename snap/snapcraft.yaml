@@ -22,8 +22,8 @@ apps:
 parts:
   eclipse:
     plugin: dump
-    source:
-      - on amd64: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-java-$SNAPCRAFT_PROJECT_VERSION-R-linux-gtk-x86_64.tar.gz
+    source: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-java-$SNAPCRAFT_PROJECT_VERSION-R-linux-gtk-x86_64.tar.gz
+    source-checksum: "sha512/9b2b25fdf0c4b4c91df693b74ab347da0038c9dd92d2b18b96ec5777dd394b04617105e3d8a4a69ed2cb44de825e7e2bcc80cd6334d5071f23e665d30479274c"
     override-build: |
       snapcraftctl build
       # Add these missing libraries to DT_NEEDED
