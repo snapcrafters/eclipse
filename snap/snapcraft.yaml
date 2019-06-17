@@ -1,4 +1,6 @@
 name: eclipse
+base: core18
+
 version: '2019-03'
 summary: Extensible Tool Platform and Java IDE
 description:
@@ -16,27 +18,26 @@ architectures:
 apps:
   eclipse:
     command: eclipse
-    desktop: eclipse.desktop
 
 parts:
-  gnome:
-    plugin: nil
-    build-packages:
-      - software-properties-common
-    override-pull: |
-      add-apt-repository -y ppa:ubuntu-desktop/gnome-3-26
-      apt -y update
-      apt -y upgrade
   eclipse:
-    after: [gnome]
     plugin: dump
-    source:
-      - on amd64: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-java-$SNAPCRAFT_PROJECT_VERSION-R-linux-gtk-x86_64.tar.gz
-    build-attributes:
-      - no-patchelf
-  desktop:
-    after: [eclipse]
-    plugin: dump
-    source: .
-    prime:
-      - eclipse.desktop
+    source: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-java-$SNAPCRAFT_PROJECT_VERSION-R-linux-gtk-x86_64.tar.gz
+    source-checksum: "sha512/9b2b25fdf0c4b4c91df693b74ab347da0038c9dd92d2b18b96ec5777dd394b04617105e3d8a4a69ed2cb44de825e7e2bcc80cd6334d5071f23e665d30479274c"
+    override-build: |
+      snapcraftctl build
+      # Add these missing libraries to DT_NEEDED
+      patchelf \
+        --add-needed libffi.so.6 \
+        --add-needed libgdk_pixbuf-2.0.so.0 \
+        --add-needed libgio-2.0.so.0 \
+        --add-needed libglib-2.0.so.0 \
+        --add-needed libgmodule-2.0.so.0 \
+        --add-needed libgobject-2.0.so.0 \
+        eclipse
+    build-packages:
+      - patchelf
+    stage-packages:
+      - libffi6
+      - libgdk-pixbuf2.0-0
+      - libglib2.0-0
