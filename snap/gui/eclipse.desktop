@@ -2,8 +2,8 @@
 Version=1.0
 Type=Application
 Name=Eclipse
-Icon=/icon.xpm
-Exec="/eclipse" %f
+Icon=${SNAP}/icon.xpm
+Exec=eclipse %f
 Comment=Eclipse IDE
 Categories=Development;IDE;
 Terminal=false
