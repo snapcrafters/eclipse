@@ -1,7 +1,7 @@
 name: eclipse
 base: core18
 
-version: '2019-03'
+version: '2019-06'
 summary: Extensible Tool Platform and Java IDE
 description:
   Eclipse provides IDEs and platforms for nearly every language and architecture.
@@ -23,7 +23,7 @@ parts:
   eclipse:
     plugin: dump
     source: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-java-$SNAPCRAFT_PROJECT_VERSION-R-linux-gtk-x86_64.tar.gz
-    source-checksum: "sha512/9b2b25fdf0c4b4c91df693b74ab347da0038c9dd92d2b18b96ec5777dd394b04617105e3d8a4a69ed2cb44de825e7e2bcc80cd6334d5071f23e665d30479274c"
+    source-checksum: "sha512/2d3cfbd888b32d5022780932ea6c0999878bb5828cbbb952ef6d911e0c544977365af8631fb71c5e1dee71c3f364d02f04f15f903eb2daccebdc087c4a058d81"
     override-build: |
       snapcraftctl build
       # Add these missing libraries to DT_NEEDED
@@ -34,6 +34,7 @@ parts:
         --add-needed libglib-2.0.so.0 \
         --add-needed libgmodule-2.0.so.0 \
         --add-needed libgobject-2.0.so.0 \
+        --add-needed libsecret-1.so.0 \
         eclipse
     build-packages:
       - patchelf
@@ -41,3 +42,4 @@ parts:
       - libffi6
       - libgdk-pixbuf2.0-0
       - libglib2.0-0
+      - libsecret-1-0
