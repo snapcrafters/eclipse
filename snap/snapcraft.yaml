@@ -17,7 +17,7 @@ architectures:
 
 apps:
   eclipse:
-    command: eclipse
+    command: eclipse -configuration ${SNAP_USER_DATA}/${SNAP_ARCH}/configuration
 
 parts:
   eclipse:
