@@ -1,7 +1,7 @@
 name: eclipse
 base: core18
 
-version: '2019-09'
+version: '2019-12'
 summary: Extensible Tool Platform and Java IDE
 description:
   Eclipse provides IDEs and platforms for nearly every language and architecture.
@@ -23,7 +23,7 @@ parts:
   eclipse:
     plugin: dump
     source: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-java-$SNAPCRAFT_PROJECT_VERSION-R-linux-gtk-x86_64.tar.gz
-    source-checksum: "sha512/eb408902f079d6666863bc318a0586589be9a86e4cd57125ef1f97eb4f4a9d6b70aa52ea23129f5f95eb513c3ce1889683516d91e85a484fcae7328fa8e1eeff"
+    source-checksum: "sha512/358d1c6c6900d3cfcf9d89a32228695206902297a7f74c440981660c7e4db810fae22e721e78b4d7df84b3bf951f91b1ba87dcd1fe9c7b00235b87f8633f4883"
     override-build: |
       snapcraftctl build
       # Add these missing libraries to DT_NEEDED
