@@ -1,2 +1,2 @@
 #!/bin/bash
-/snap/eclipse/current/eclipse -configuration ${SNAP_USER_DATA}/${SNAP_ARCH}/configuration
+exec $SNAP/eclipse -configuration ${SNAP_USER_DATA}/${SNAP_ARCH}/configuration

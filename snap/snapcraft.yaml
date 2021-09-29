@@ -38,7 +38,7 @@ parts:
     build-packages:
       - patchelf
     stage-packages:
-      - libffi-dev
+      - libffi7
       - libfreetype6
       - libpng16-16
       - libgdk-pixbuf2.0-0
@@ -51,4 +51,4 @@ parts:
     plugin: dump
     source: snap/local/wrappers
     organize:
-      "eclipse": bin/eclipse-wrapper
+      eclipse: bin/eclipse-wrapper
