@@ -1,7 +1,7 @@
 name: eclipse
-base: core18
+base: core20
 
-version: '2020-09'
+version: '2021-09'
 summary: Extensible Tool Platform and Java IDE
 description:
   Eclipse provides IDEs and platforms for nearly every language and architecture.
@@ -17,18 +17,17 @@ architectures:
 
 apps:
   eclipse:
-    command: eclipse -configuration ${SNAP_USER_DATA}/${SNAP_ARCH}/configuration
+    command: bin/eclipse-wrapper
 
 parts:
   eclipse:
     plugin: dump
     source: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-java-$SNAPCRAFT_PROJECT_VERSION-R-linux-gtk-x86_64.tar.gz
-    source-checksum: "sha512/38b063a4df5a0ae6d22f82fb1c64281e462ef8b4de6e4cc970d47e89575c447376550ebc8063b8bcf2c6532ac7a276fe9d4c79f140846357c4218899f9d93bf3"
+    source-checksum: "sha512/1baeed0f32ea23eed2c1166ab6b92b086f181a030c9a4e59bf424515c558bf1c57c5f6ce077c2f94c12644eb8224f6034b5d724d726636454428c12459f2028f"
     override-build: |
       snapcraftctl build
       # Add these missing libraries to DT_NEEDED
       patchelf \
-        --add-needed libffi.so.6 \
         --add-needed libgdk_pixbuf-2.0.so.0 \
         --add-needed libgio-2.0.so.0 \
         --add-needed libglib-2.0.so.0 \
@@ -39,7 +38,17 @@ parts:
     build-packages:
       - patchelf
     stage-packages:
-      - libffi6
+      - libffi7
+      - libfreetype6
+      - libpng16-16
       - libgdk-pixbuf2.0-0
-      - libglib2.0-0
       - libsecret-1-0
+      - libasound2
+      - libxi6
+      - libxrender1
+      - libxtst6
+  wrappers:
+    plugin: dump
+    source: snap/local/wrappers
+    organize:
+      eclipse: bin/eclipse-wrapper
