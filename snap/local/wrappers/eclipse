@@ -1,2 +1,9 @@
 #!/bin/bash
-exec $SNAP/eclipse -configuration ${SNAP_USER_DATA}/${SNAP_ARCH}/configuration
+EXTRA_ARGS=()
+if [ -f "$SNAP_USER_DATA/eclipse.ini" ]; then
+    # Allow the user to override the eclipse.ini with their own version
+    EXTRA_ARGS+=("--launcher.ini" "$SNAP_USER_DATA/eclipse.ini")
+else
+    echo "To override eclipse.ini, copy the default file to '$SNAP_USER_DATA/eclipse.ini' and modify to suit."
+fi
+exec "$SNAP/eclipse" -configuration "${SNAP_USER_DATA}/${SNAP_ARCH}/configuration" "${EXTRA_ARGS[@]}" "$@"
