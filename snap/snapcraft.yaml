@@ -1,7 +1,7 @@
 name: eclipse
 base: core20
 
-version: '2021-09'
+version: '2022-06'
 summary: Extensible Tool Platform and Java IDE
 description:
   Eclipse provides IDEs and platforms for nearly every language and architecture.
@@ -22,21 +22,10 @@ apps:
 parts:
   eclipse:
     plugin: dump
-    source: http://ftp.halifax.rwth-aachen.de/eclipse/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-java-$SNAPCRAFT_PROJECT_VERSION-R-linux-gtk-x86_64.tar.gz
-    source-checksum: "sha512/1baeed0f32ea23eed2c1166ab6b92b086f181a030c9a4e59bf424515c558bf1c57c5f6ce077c2f94c12644eb8224f6034b5d724d726636454428c12459f2028f"
-    override-build: |
-      snapcraftctl build
-      # Add these missing libraries to DT_NEEDED
-      patchelf \
-        --add-needed libgdk_pixbuf-2.0.so.0 \
-        --add-needed libgio-2.0.so.0 \
-        --add-needed libglib-2.0.so.0 \
-        --add-needed libgmodule-2.0.so.0 \
-        --add-needed libgobject-2.0.so.0 \
-        --add-needed libsecret-1.so.0 \
-        eclipse
-    build-packages:
-      - patchelf
+    source: https://download.eclipse.org/technology/epp/downloads/release/2022-06/R/eclipse-java-2022-06-R-linux-gtk-x86_64.tar.gz
+    source-checksum: "sha512/69c7bece9cf9b632c0f3d8072f206b8e574a53bfa46fce6e257e32e0841d564aec92b03eb82bf4cfd97307fa9b82b1f9d5914ddb1cf4e33d6714b25dd3d59a70"
+    build-attributes:
+      - no-patchelf
     stage-packages:
       - libffi7
       - libfreetype6
