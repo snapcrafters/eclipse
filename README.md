@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-ide/eclipse_logo_white.svg" alt="Eclipse">
+  <img src="https://www.eclipse.org/org/artwork/images/eclipse_ide_logo.png" alt="Eclipse">
   <br />
   Eclipse
 </h1>
@@ -9,7 +9,7 @@ Collaborative Working Groups</i>. It works on Ubuntu, Fedora, Debian, and other 
 distributions.</p>
 
 <p align="center">
-<a href="https://build.snapcraft.io/user/snapcrafters/eclipse"><img src="https://build.snapcraft.io/badge/snapcrafters/eclipse.svg" alt="Snap Status"></a>
+<a href="https://snapcraft.io/eclipse"><img src="https://snapcraft.io/eclipse/badge.svg" alt="Snap Status"></a>
 </p>
 
 ## Install
