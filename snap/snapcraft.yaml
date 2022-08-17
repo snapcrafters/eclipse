@@ -26,16 +26,6 @@ parts:
     source-checksum: "sha512/69c7bece9cf9b632c0f3d8072f206b8e574a53bfa46fce6e257e32e0841d564aec92b03eb82bf4cfd97307fa9b82b1f9d5914ddb1cf4e33d6714b25dd3d59a70"
     build-attributes:
       - no-patchelf
-    stage-packages:
-      - libffi7
-      - libfreetype6
-      - libpng16-16
-      - libgdk-pixbuf2.0-0
-      - libsecret-1-0
-      - libasound2
-      - libxi6
-      - libxrender1
-      - libxtst6
   wrappers:
     plugin: dump
     source: snap/local/wrappers

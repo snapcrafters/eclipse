@@ -18,6 +18,13 @@ distributions.</p>
 
 ([Don't have snapd installed?](https://snapcraft.io/docs/core/install))
 
+Since this is a classic snap, the following packages might be needed on the host machine:
+  - default-jre
+  - libgtk-3-0
+  - libgdk-pixbuf2.0-0
+  - libfreetype6
+  - libpng16-16
+
 ![eclipse](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Eclipse_4.6.3.png/1200px-Eclipse_4.6.3.png "eclipse")
 
 <p align="center">Published for <img src="http://anything.codes/slack-emoji-for-techies/emoji/tux.png" align="top" width="24" /> with :gift_heart: by Snapcrafters</p>
