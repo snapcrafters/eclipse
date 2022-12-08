@@ -1,7 +1,7 @@
 name: eclipse
 base: core20
 
-version: '2022-09'
+version: '2022-12'
 summary: Extensible Tool Platform and Java IDE
 description:
   Eclipse provides IDEs and platforms for nearly every language and architecture.
@@ -22,8 +22,8 @@ apps:
 parts:
   eclipse:
     plugin: dump
-    source: https://download.eclipse.org/technology/epp/downloads/release/2022-09/R/eclipse-java-2022-09-R-linux-gtk-x86_64.tar.gz
-    source-checksum: "sha512/51e8c4d29ce0c0162998d6dd1847a030ce6210e3183fe56f79b535ed841e254ce1fea62bd01eac7d7c09f9c75309abca08d18b30c0de9c931893d57fe834991f"
+    source: https://download.eclipse.org/technology/epp/downloads/release/2022-12/R/eclipse-java-2022-12-R-linux-gtk-x86_64.tar.gz
+    source-checksum: "sha512/ef59976152d59f20e36196c918129cd1a0cfabcb1b4f195565142aec6952503bf67eca0d616620a987caed14840f9ca86ac09fb371d462bed0a304402893a77d"
     build-attributes:
       - no-patchelf
     stage-packages:
