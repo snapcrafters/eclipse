@@ -1,7 +1,7 @@
 name: eclipse
 base: core20
 
-version: '2023-03'
+version: '2023-06'
 summary: Extensible Tool Platform and Java IDE
 description:
   Eclipse provides IDEs and platforms for nearly every language and architecture.
@@ -22,8 +22,8 @@ apps:
 parts:
   eclipse:
     plugin: dump
-    source: https://download.eclipse.org/technology/epp/downloads/release/2023-03/R/eclipse-java-2023-03-R-linux-gtk-x86_64.tar.gz
-    source-checksum: "sha512/ab9a9d25c1f1bbe0970e33ff5ea8a027bcd9e49c2c183bc0b6a50ef35e78644d4e8ba714ae0b7ccea41e2afd0d76ff4bcd40271560effc39c87f9db9ff02b90a"
+    source: https://download.eclipse.org/technology/epp/downloads/release/2023-06/R/eclipse-java-2023-06-R-linux-gtk-x86_64.tar.gz
+    source-checksum: "sha512/7683dd8c9934ca668c16068174ecf1f591fecb9b75866c58288b705884f78939ccfb4143c5cd435d02679b6cf6442fac96255702786fec64a605010fe0a0fbb5"
     build-attributes:
       - no-patchelf
     stage-packages:
