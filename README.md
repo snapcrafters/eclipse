@@ -14,7 +14,7 @@ distributions.</p>
 
 ## Install
 
-    snap install eclipse
+    snap install eclipse --classic
 
 ([Don't have snapd installed?](https://snapcraft.io/docs/core/install))
 
