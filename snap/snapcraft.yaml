@@ -1,5 +1,5 @@
 name: eclipse
-base: core20
+base: core22
 
 version: '2023-09'
 summary: Extensible Tool Platform and Java IDE
@@ -9,15 +9,33 @@ description:
   platforms for creating desktop, Web and cloud IDEs. These platforms deliver the most
   extensive collection of add-on tools available for software developers.
 
-grade: stable
-confinement: classic
+grade: devel
+confinement: strict
 
 architectures:
   - build-on: amd64
 
+slots:
+  eclipse:
+    interface: dbus
+    bus: session
+    name: org.eclipse.Eclipse
+
 apps:
   eclipse:
     command: bin/eclipse-wrapper
+    extensions: [gnome]
+    desktop: eclipse.desktop
+    plugs: [eclipse-workspace]
+
+# mkdir ~/workspace
+# snap connect eclipse:eclipse-workspace
+plugs:
+  eclipse-workspace:
+    interface: personal-files
+    write:
+    - $HOME/workspace
+    
 
 parts:
   eclipse:
@@ -26,18 +44,15 @@ parts:
     source-checksum: "sha512/eb2c72dbc545d3e828430c359e6c76ca9f4184095504bec7b0ce675fffea74cb558aa307227fb533993f703fbcafaab6ca2daec3200a0987a96ca9cf8dbcee01"
     build-attributes:
       - no-patchelf
-    stage-packages:
-      - libffi7
-      - libfreetype6
-      - libpng16-16
-      - libgdk-pixbuf2.0-0
-      - libsecret-1-0
-      - libasound2
-      - libxi6
-      - libxrender1
-      - libxtst6
+    override-build: |
+      snapcraftctl build
+      chmod +x $SNAPCRAFT_PART_INSTALL/eclipse
+      chmod +x $SNAPCRAFT_PART_INSTALL/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.linux.x86_64_17.0.8.v20230831-1047/jre/bin/java
   wrappers:
     plugin: dump
     source: snap/local/wrappers
     organize:
       eclipse: bin/eclipse-wrapper
+  eclipse_desktop:
+    plugin: dump
+    source: snap/gui
