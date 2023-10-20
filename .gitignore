@@ -1,4 +1,4 @@
-#snapcraft specifics
+# snapcraft specifics
 parts
 stage
 prime
@@ -6,3 +6,6 @@ prime
 .snapcraft
 __pycache__
 *.pyc
+
+# generated
+snap/snapcraft.yaml 

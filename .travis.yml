@@ -7,6 +7,7 @@ env:
     - LANG: C.UTF-8
     - SNAPCRAFT_ENABLE_SILENT_REPORT: y
     - SNAPCRAFT_ENABLE_DEVELOPER_DEBUG: y
+    - ECLIPSE_PACKAGE: eclipse-java
 
 addons:
   snaps:
@@ -17,6 +18,7 @@ addons:
     - name: transfer
     - name: lxd
       channel: stable
+    - name: yq
 
 script:
   - sudo apt update
@@ -24,6 +26,7 @@ script:
   - sudo /snap/bin/lxd waitready
   - sudo /snap/bin/lxd init --auto
   - mkdir -p "$TRAVIS_BUILD_DIR/snaps-cache"
+  - ./set_eclipse_package.sh
   - sudo snapcraft --use-lxd
 after_success:
   - cp *.snap "$(echo "$TRAVIS_REPO_SLUG" | sed -e 's|.*/\(.*\)|\1|')-pr$TRAVIS_PULL_REQUEST.snap"
