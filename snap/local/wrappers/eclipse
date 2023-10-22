@@ -6,4 +6,9 @@ if [ -f "$SNAP_USER_DATA/eclipse.ini" ]; then
 else
     echo "To override eclipse.ini, copy the default file to '$SNAP_USER_DATA/eclipse.ini' and modify to suit."
 fi
-exec "$SNAP/eclipse" -configuration "${SNAP_USER_DATA}/${SNAP_ARCH}/configuration" "${EXTRA_ARGS[@]}" "$@"
+
+ECLIPSE_WORKSPACE=$SNAP_USER_DATA/workspace
+mkdir -p $ECLIPSE_WORKSPACE
+echo Using workspace at $ECLIPSE_WORKSPACE.
+
+exec "$SNAP/eclipse" -configuration "${SNAP_USER_DATA}/${SNAP_ARCH}/configuration" -data "$ECLIPSE_WORKSPACE" "${EXTRA_ARGS[@]}" "$@"

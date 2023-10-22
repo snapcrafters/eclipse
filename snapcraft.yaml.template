@@ -9,7 +9,7 @@ description:
   platforms for creating desktop, Web and cloud IDEs. These platforms deliver the most
   extensive collection of add-on tools available for software developers.
 
-grade: devel
+grade: stable
 confinement: strict
 
 compression: lzo
@@ -17,27 +17,40 @@ compression: lzo
 architectures:
   - build-on: amd64
 
-slots:
-  eclipse:
-    interface: dbus
-    bus: session
-    name: org.eclipse.Eclipse
-
 apps:
-  eclipse:
+  eclipse: # ECLISE_COMMAND
     command: bin/eclipse-wrapper
     extensions: [gnome]
     desktop: eclipse.desktop
-    plugs: [eclipse-workspace]
+    plugs:
+      - personal-git-global
+      - personal-maven-cache
+      - personal-eclipse-config
+      - sources-dir
+      - network
 
-# mkdir ~/workspace
-# snap connect eclipse:eclipse-workspace
 plugs:
-  eclipse-workspace:
+  personal-git-global:
+    interface: personal-files
+    read:
+    - $HOME/.gitconfig
+  # FIXME exclude .m2 secrets
+  personal-maven-cache:
     interface: personal-files
     write:
-    - $HOME/workspace
-    
+    - $HOME/.m2
+  personal-eclipse-config:
+    interface: personal-files
+    write:
+    - $HOME/.eclipse
+  sources-dir:
+    interface: personal-files
+    write:
+    - $HOME/projs
+  jdk:
+    interface: content
+    target: $SNAP/jdk
+    default-provider: openjdk
 
 parts:
   eclipse:
@@ -49,8 +62,9 @@ parts:
       - no-patchelf
     override-build: |
       snapcraftctl build
-      chmod +x $SNAPCRAFT_PART_INSTALL/eclipse
-      chmod +x $SNAPCRAFT_PART_INSTALL/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.linux.x86_64_17.0.8.v20230831-1047/jre/bin/java
+      chmod 555 $SNAPCRAFT_PART_INSTALL/eclipse
+      chmod 555 $SNAPCRAFT_PART_INSTALL/plugins
+      chmod -R 555 $SNAPCRAFT_PART_INSTALL/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.linux.*
   wrappers:
     plugin: dump
     source: snap/local/wrappers
