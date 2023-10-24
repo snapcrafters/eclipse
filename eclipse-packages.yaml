@@ -6,3 +6,6 @@ latest: 2023-09
   eclipse-pde:
     source: https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/2023-09/R/eclipse-committers-2023-09-R-linux-gtk-x86_64.tar.gz&r=1
     checksum: "sha512/c1e25af8192f18feaec97f92fd0f1328b153e5c82db7678b492aec25f4f9497d402165793b8d491562fa0138120358a514609aa2e8d1b58f578a78ea77269ee1"
+  eclipse-cdt:
+    source: https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/2023-09/R/eclipse-cpp-2023-09-R-linux-gtk-x86_64.tar.gz&r=1
+    checksum: "sha512/62bb58ce22873a5af2205c520bd28a3971fdcb0e7a27aeaeb2e7b717dfd2e7ce613f52885f459dddaf1274d19100f5561b6277cbea38c4c90142688ef8f990e5"
