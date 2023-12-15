@@ -14,6 +14,7 @@ confinement: classic
 
 architectures:
   - build-on: amd64
+  - build-on: arm64
 
 apps:
   eclipse:
@@ -22,8 +23,9 @@ apps:
 parts:
   eclipse:
     plugin: dump
-    source: https://download.eclipse.org/technology/epp/downloads/release/2023-09/R/eclipse-java-2023-09-R-linux-gtk-x86_64.tar.gz
-    source-checksum: "sha512/eb2c72dbc545d3e828430c359e6c76ca9f4184095504bec7b0ce675fffea74cb558aa307227fb533993f703fbcafaab6ca2daec3200a0987a96ca9cf8dbcee01"
+    source:
+      - on amd64: https://download.eclipse.org/technology/epp/downloads/release/2023-09/R/eclipse-java-2023-09-R-linux-gtk-x86_64.tar.gz
+      - on arm64: https://download.eclipse.org/technology/epp/downloads/release/2023-09/R/eclipse-java-2023-09-R-linux-gtk-aarch64.tar.gz
     build-attributes:
       - no-patchelf
     stage-packages:
