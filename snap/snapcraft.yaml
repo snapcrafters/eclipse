@@ -3,6 +3,7 @@ base: core20
 
 version: '2023-09'
 summary: Extensible Tool Platform and Java IDE
+website: https://eclipse.org/ide
 description:
   Eclipse provides IDEs and platforms for nearly every language and architecture.
   We are famous for our Java IDE, C/C++, JavaScript and PHP IDEs built on extensible
