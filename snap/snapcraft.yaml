@@ -1,5 +1,5 @@
 name: eclipse
-base: core20
+base: core22
 
 version: '2023-12'
 summary: Extensible Tool Platform and Java IDE
