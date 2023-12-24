@@ -24,8 +24,8 @@ parts:
   eclipse:
     plugin: dump
     source:
-      - on amd64: https://download.eclipse.org/technology/epp/downloads/release/2023-09/R/eclipse-java-2023-09-R-linux-gtk-x86_64.tar.gz
-      - on arm64: https://download.eclipse.org/technology/epp/downloads/release/2023-09/R/eclipse-java-2023-09-R-linux-gtk-aarch64.tar.gz
+      - on amd64: "https://download.eclipse.org/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-java-$SNAPCRAFT_PROJECT_VERSION-R-linux-gtk-x86_64.tar.gz"
+      - on arm64: "https://download.eclipse.org/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-java-$SNAPCRAFT_PROJECT_VERSION-R-linux-gtk-aarch64.tar.gz"
     build-attributes:
       - no-patchelf
     stage-packages:
