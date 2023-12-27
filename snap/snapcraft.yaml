@@ -1,7 +1,7 @@
 name: eclipse
 base: core22
 
-version: '2023-12'
+version: 2023-12
 summary: Extensible Tool Platform and Java IDE
 website: https://eclipse.org/ide
 description:
