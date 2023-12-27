@@ -3,6 +3,7 @@ base: core22
 
 version: '2023-12'
 summary: Extensible Tool Platform and Java IDE
+website: https://eclipse.org/ide
 description:
   Eclipse provides IDEs and platforms for nearly every language and architecture.
   We are famous for our Java IDE, C/C++, JavaScript and PHP IDEs built on extensible
@@ -24,8 +25,8 @@ parts:
   eclipse:
     plugin: dump
     source:
-      - on amd64: https://download.eclipse.org/technology/epp/downloads/release/2023-12/R/eclipse-java-2023-12-R-linux-gtk-x86_64.tar.gz
-      - on arm64: https://download.eclipse.org/technology/epp/downloads/release/2023-12/R/eclipse-java-2023-12-R-linux-gtk-aarch64.tar.gz
+      - on amd64: "https://download.eclipse.org/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-java-$SNAPCRAFT_PROJECT_VERSION-R-linux-gtk-x86_64.tar.gz"
+      - on arm64: "https://download.eclipse.org/technology/epp/downloads/release/$SNAPCRAFT_PROJECT_VERSION/R/eclipse-java-$SNAPCRAFT_PROJECT_VERSION-R-linux-gtk-aarch64.tar.gz"
     build-attributes:
       - no-patchelf
     stage-packages:
