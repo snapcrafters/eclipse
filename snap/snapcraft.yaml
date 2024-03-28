@@ -20,6 +20,8 @@ architectures:
 apps:
   eclipse:
     command: bin/eclipse-wrapper
+    environment:
+      __NV_PRIME_RENDER_OFFLOAD: 1
 
 parts:
   eclipse:
